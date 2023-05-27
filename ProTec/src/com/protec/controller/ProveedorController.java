@@ -54,9 +54,22 @@ public class ProveedorController extends HttpServlet {
 				}
 				break;
 			}
+			case "mostrarPrincipal":{
+				mostrarPrincipal(request,response);
+				break;
+			}
 
 		}
 	}
+    
+    public void mostrarPrincipal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nuevaPagina = "/principal.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+		dispatcher.forward(request, response);
+	}
+    
+  
+    
     
     public void buscarProveedores(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String estado = request.getParameter("estado");
@@ -101,6 +114,10 @@ public class ProveedorController extends HttpServlet {
 				}
 				break;
 			}
+			case "regresarGestionProveedor":{
+				regresarGestionProveedor(request, response);
+				break;
+			}
 		}
 	}
     
@@ -110,6 +127,14 @@ public class ProveedorController extends HttpServlet {
 		dispatcher.forward(request, response);
 		
 	}
+    
+    public void regresarGestionProveedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nuevaPagina = "/gestionProveedores.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+		dispatcher.forward(request, response);
+		
+	}
+    
     
     public void registrarProveedor(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	String razSoc = request.getParameter("razSoc");

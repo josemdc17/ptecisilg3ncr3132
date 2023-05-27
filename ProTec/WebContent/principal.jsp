@@ -6,8 +6,8 @@
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
 	</head>
-	<body>
-		<h1>Bienvenido al Sistema WebISIL</h1>
+	<body style="background-color: #f5ede9">
+		<h1>Bienvenido a QUALITY SUPPLIERS</h1>
 		<br>
 		<br>
 		<a href="home?opcionGet=verGestionUsuarios">Gestión de Colaboradores</a>

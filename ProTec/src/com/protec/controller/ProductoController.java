@@ -62,8 +62,18 @@ public class ProductoController extends HttpServlet{
 				}
 				break;
 			}
+			case "mostrarPrincipal":{
+				mostrarPrincipal(request,response);
+				break;
+			}
 
 		}
+	}
+    
+    public void mostrarPrincipal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nuevaPagina = "/principal.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+		dispatcher.forward(request, response);
 	}
     
     public void buscarProductos(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -121,12 +131,24 @@ public class ProductoController extends HttpServlet{
 				}
 				break;
 			}
+			case "regresarGestionProducto":{
+				regresarGestionProducto(request, response);
+				break;
+			}
 		}
 	}
     
     
     public void mostrarNuevoProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nuevaPagina = "/nuevoProducto.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+		dispatcher.forward(request, response);
+		
+	}
+    
+    
+    public void regresarGestionProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nuevaPagina = "/gestionProductos.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
 		dispatcher.forward(request, response);
 		

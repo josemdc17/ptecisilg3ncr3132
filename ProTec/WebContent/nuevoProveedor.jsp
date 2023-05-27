@@ -3,24 +3,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="resources/css/bootstrap.css"/>
 </head>
-	<body>
+	<body style="margin:30px; background-color: #f5ede9">
+	<div class="contenedor">
+		<img class="background-image" src="resources/images/llama.png" style="position: absolute;height: 60%; bottom: 0; margin-left:15%; z-index: -1;">
+	<div style="text-align: right;">
+		<form action="proveedor" method="POST">
+				<input type="hidden" name="opcionPost" value="regresarGestionProveedor">
+				<button style="border-radius: 7px; background-color: #119e44; border-style: solid; border-color:green; color:white">Regresar</button>
+		</form>
+	</div>
 		<h1>Nuevo Proveedor</h1>
 		<br>
 		<br>
 		<form action="proveedor" method="POST">
-			<input type="hidden" name="opcionPost" value="registrarProveedor">
-			Razón Social: <input type="text" name="razSoc"><br><br>
-			RUC: <input type="text" name="ruc"><br><br>
-			Direccion: <input type="text" name="direccion"><br><br>
-			Teléfono: <input type="text" name="telefono"><br><br>
-			Estado: <select name="estado">
-							  <option value="Activo">Activo</option>
-							  <option value="Inactivo">Inactivo</option>
-					</select><br><br>		
-			<button>Grabar</button>
+			<div class="row">
+				<input type="hidden" name="opcionPost" value="registrarProveedor">
+				<div class="col-2"></div>
+				<div class="col-4">
+					<h5>Razón Social</h5>
+					<input type="text" class="form-control" name="razSoc">
+					<br>
+					<h5>RUC</h5>
+					<input type="text" class="form-control" name="ruc">
+					<br>
+					<h5>Direccion</h5>
+					<input type="text" class="form-control" name="direccion">
+					<br>
+				</div>
+				<div class="col-4">
+					<h5>Teléfono</h5>
+					<input type="text" class="form-control" name="telefono">
+					<br>
+					<h5>Estado:</h5> <select class="form-select" name="estado">
+							  <option value="Disponible">Activo</option>
+							  <option value="No Disponible">Inactivo</option>
+						</select><br><br>
+				</div>
+				<div class="col-2"></div>	
+				<div style="text-align: center">	
+						<button  style="width:150px; justify-content: center; border-radius: 7px; background-color: #119e44; border-style: solid; border-color:green; color:white">Grabar</button> 
+				</div>
+			</div>
 		</form>
+		</div>
 	</body>
 </html>

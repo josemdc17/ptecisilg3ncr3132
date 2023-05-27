@@ -63,6 +63,10 @@ public class UsuarioController extends HttpServlet {
 				}
 				break;
 			}
+			case "mostrarPrincipal":{
+				mostrarPrincipal(request,response);
+				break;
+			}
 		}
 	}
 
@@ -126,6 +130,10 @@ public class UsuarioController extends HttpServlet {
 				}
 				break;
 			}
+			case "regresarGestionUsuario":{
+				regresarGestionUsuario(request, response);
+				break;
+			}
 		}
 	}
 	
@@ -135,6 +143,14 @@ public class UsuarioController extends HttpServlet {
 		dispatcher.forward(request, response);
 		
 	}
+	
+	public void regresarGestionUsuario(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nuevaPagina = "/gestionUsuarios.jsp";
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+		dispatcher.forward(request, response);
+		
+	}
+	
 	
 	public void registrarUsuario(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
 		String correo = request.getParameter("correo");
