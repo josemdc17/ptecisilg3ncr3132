@@ -21,8 +21,7 @@
 	<br>
 		<h1>Editar Producto</h1>
 			<br>
-			<br>
-			
+			<br>		
 			<form action="producto" method="POST">
 			<div class="row">
 				<input type="hidden" name="opcionPost" value="actualizarProducto">

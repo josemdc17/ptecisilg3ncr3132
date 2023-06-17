@@ -10,7 +10,7 @@
 	</head>
 	<body style="margin:30px; background-color: #f5ede9">
 		<div class="contenedor">
-		<img class="background-image" src="resources/images/llama.png" style="position: absolute;height: 60%; bottom: 0; margin-left:18%">
+<!-- 		<img class="background-image" src="resources/images/llama.png" style="position: absolute;height: 60%; bottom: 0; margin-left:18%"> -->
 			<div style="text-align: right;">
 				<form action="usuario" method="POST">
 						<input type="hidden" name="opcionPost" value="regresarGestionUsuario">
@@ -37,9 +37,9 @@
 						</select><br><br>
 					</div>
 					<div class="col-5"></div>	
-					<div style="text-align: center">	
-							<button  style="width:150px; justify-content: center; border-radius: 7px; background-color: #119e44; border-style: solid; border-color:green; color:white">Grabar</button> 
-					</div>
+					
+							<button  style="width:150px; margin-left:45%; justify-content: center; border-radius: 7px; background-color: #119e44; border-style: solid; border-color:green; color:white">Grabar</button> 
+					
 				</div>
 			</form>
 		</div>
