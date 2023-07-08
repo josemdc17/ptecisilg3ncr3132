@@ -46,6 +46,7 @@ public class PedidoDAO {
 			String fecEntrega = resultado.getString(6);
 			String detalle = resultado.getString(7);
 			String estadoPedido = resultado.getString(8);
+			String numPedido = resultado.getString(9);
 
 			Pedido objPedido = new Pedido();
 			objPedido.setCodigoPedido(codigoPedido);
@@ -56,6 +57,7 @@ public class PedidoDAO {
 			objPedido.setFecEntrega(fecEntrega);
 			objPedido.setDetalle(detalle);
 			objPedido.setEstado(estadoPedido);
+			objPedido.setNumPedido(numPedido);
 			listaPedidos.add(objPedido);
 		}
 		return listaPedidos;
@@ -76,6 +78,7 @@ public class PedidoDAO {
 			String fecEntrega = resultado.getString(6);
 			String detalle = resultado.getString(7);
 			String estadoPedido = resultado.getString(8);
+			String numPedido = resultado.getString(9);
 			
 			objPedido.setCodigoPedido(codigoPedido);
 			objPedido.setNombreCliente(nombreCliente);
@@ -85,10 +88,41 @@ public class PedidoDAO {
 			objPedido.setFecEntrega(fecEntrega);
 			objPedido.setDetalle(detalle);
 			objPedido.setEstado(estadoPedido);
+			objPedido.setNumPedido(numPedido);
 		}
 		return objPedido;
 	}
 	
+	public List<Pedido> buscarAllPedidos() throws SQLException {
+		List<Pedido> listadoPedidos = new ArrayList<>();
+		Statement stmt = conexion.createStatement();
+		String sentencia= "Select * from Pedido";
+		ResultSet resultado = stmt.executeQuery(sentencia);
+		while (resultado.next()) {
+			int codigoPedido = resultado.getInt(1);
+			String nombreCliente = resultado.getString(2);
+			String direccionCliente = resultado.getString(3);
+			String telefCliente = resultado.getString(4);
+			String fecPedido = resultado.getString(5);
+			String fecEntrega = resultado.getString(6);
+			String detalle = resultado.getString(7);
+			String estadoPedido = resultado.getString(8);
+			String numPedido = resultado.getString(9);
+
+			Pedido objPedido = new Pedido();
+			objPedido.setCodigoPedido(codigoPedido);
+			objPedido.setNombreCliente(nombreCliente);
+			objPedido.setDireccionCliente(direccionCliente);
+			objPedido.setTelefCliente(telefCliente);
+			objPedido.setFecPedido(fecPedido);
+			objPedido.setFecEntrega(fecEntrega);
+			objPedido.setDetalle(detalle);
+			objPedido.setEstado(estadoPedido);
+			objPedido.setNumPedido(numPedido);
+			listadoPedidos.add(objPedido);
+		}
+		return listadoPedidos;
+	}
 	
 
 	public void registrarPedido(String nombreCliente, String direccionCliente, String telefCliente, String fecPedido, String fecEntrega, String detalle) throws SQLException {
@@ -105,4 +139,16 @@ public class PedidoDAO {
 	}
 	
 	
+	public void actualizarEstado(int codigoPedido,String estado)throws SQLException{
+		Statement stmt = conexion.createStatement();
+		if(estado.equals("Programado")) {
+			String sentencia=" UPDATE Pedido SET estado = 'Preparacion'  WHERE codigoPedido =" + codigoPedido ;
+			stmt.execute(sentencia);
+		}
+		if(estado.equals("Preparacion")) {
+			String sentencia=" UPDATE Pedido SET estado = 'Entregado'  WHERE codigoPedido =" + codigoPedido;
+			stmt.execute(sentencia);
+		}
+		
+	}
 }

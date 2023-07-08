@@ -75,7 +75,7 @@
 					<td>${objProducto.codProveedor}</td>
 					<td>${objProducto.estado}</td>
 					<td><a href="producto?opcionGet=editarProducto&codigoProducto=${objProducto.codigoProducto}">Editar</a>
-						<a href="javascript:mostrarMotivoDeCambio(${objProducto.codigoProducto})">Motivo</a>
+						<%--<a href="javascript:mostrarMotivoDeCambio(${objProducto.codigoProducto})">Motivo</a>
 					<%-- <a href="producto?opcionGet=eliminarProducto&codigoProducto=${objProducto.codigoProducto}">Eliminar</a></td> --%>
 				</tr>
 			</c:forEach>

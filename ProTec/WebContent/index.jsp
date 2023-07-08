@@ -23,6 +23,14 @@
 				  	
 				  	<button type="submit" class="btn btn-primary" style="background-color: #119e44; border:green">Ingresar</button>
 				</form>
+				<%
+				   String error = request.getParameter("error");
+				   if (error != null && error.equals("1")) {
+				       out.println("<p style=\"color: red;\">Usuario y/o contraseña incorrectos</p>");
+				   } else if (error != null && error.equals("2")) {
+				       out.println("<p style=\"color: red;\">Perfil incorrecto</p>");
+				   }
+				%>
 			</div>
 			
     		<div class="col-1"></div>

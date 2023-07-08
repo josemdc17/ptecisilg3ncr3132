@@ -55,12 +55,13 @@
 					</div>
 					<div class="col-4">
 						<h5>Productos del Pedido</h5>
-							<input type="text" class="form-control" name="detalle" style="width: 550px; height: 100px;"">
+							<input type="text" class="form-control" name="detalle" style="width: 550px; height: 100px;">
 						<br>
-					
-						<h5>Estado del Pedido:</h5> <select class="form-select" name="estado">
-							  <option value="Programado">Programado</option>
-						</select><br><br>	
+						
+						<h5>Estado del Pedido:</h5>
+							<input type="text" class="form-control" name="estado" value="Programado" readonly>
+							
+						<br><br>	
 					</div>		
 					<div class="col-2"></div>
 					<div style="text-align: center">	

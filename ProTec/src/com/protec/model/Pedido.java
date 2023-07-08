@@ -9,6 +9,8 @@ public class Pedido {
 	private String fecEntrega;
 	private String detalle;
 	private String estado;
+	private String numPedido;
+	
 	
 	public int getCodigoPedido() {
 		return codigoPedido;
@@ -57,6 +59,12 @@ public class Pedido {
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+	public String getNumPedido() {
+		return numPedido;
+	}
+	public void setNumPedido(String numPedido) {
+		this.numPedido = numPedido;
 	}
 	
 	

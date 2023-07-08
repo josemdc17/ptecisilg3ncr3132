@@ -2,6 +2,7 @@ package com.protec.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.protec.dao.PedidoDAO;
 import com.protec.dao.UsuarioDAO;
+import com.protec.model.Pedido;
 
 /**
  * Servlet implementation class Home
@@ -19,6 +23,7 @@ import com.protec.dao.UsuarioDAO;
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	private PedidoDAO objPedidoDAO = new PedidoDAO();  
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -100,19 +105,22 @@ public class Home extends HttpServlet {
 		}
 	}
 	
-	private void validarUsuario(HttpServletRequest request,HttpServletResponse response) throws SQLException, ServletException, IOException{
-		String nuevaPagina;
-		String correo = request.getParameter("correo");
-		String password = request.getParameter("password");
-		/*Ahora toca ir a base de dato y verificar que ese correo y password sean correctos*/
-		int existe = usuarioDAO.validarUsuario(correo, password);
-		if (existe==1) {
-			nuevaPagina = "/principal.jsp";
-		}
-		else {
-			nuevaPagina = "/index.jsp";
-		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
-		dispatcher.forward(request, response);
-	}	
+	private void validarUsuario(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+	    String nuevaPagina;
+	    String correo = request.getParameter("correo");
+	    String password = request.getParameter("password");
+	    String perfil = usuarioDAO.validarUsuario(correo, password);
+	    if (perfil.equals("Administrativo")) {
+	        nuevaPagina = "/principal.jsp";
+	    } else if (perfil.equals("Jefe")) {
+	    	List<Pedido> listadoPedidos = objPedidoDAO.buscarAllPedidos();
+			request.setAttribute("listadoPedidos", listadoPedidos);
+	        nuevaPagina = "/gestionJefe.jsp";
+	    } else {
+	        nuevaPagina = "/index.jsp?error=1";
+	    }
+	    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nuevaPagina);
+	    dispatcher.forward(request, response);
+	}
+
 }

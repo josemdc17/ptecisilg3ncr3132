@@ -43,13 +43,13 @@
 		<br>
 		<table class="table">
 			<tr>
-				<td scope="col">Codigo</td>
+				<td scope="col">Número de Pedido</td>
 				<td scope="col">Fecha del Pedido</td>
 				<td scope="col">Fecha de Entrega</td>			
 			</tr>
 			<c:forEach items="${listaPedidos}" var="objPedido">
 				<tr>
-					<td scope="row">${objPedido.codigoPedido}</td>
+					<td scope="row">${objPedido.numPedido}</td>
 					<td>${objPedido.fecPedido}</td>
 					<td>${objPedido.fecEntrega}</td>
 					<td><a href="pedido?opcionGet=mostrarDetallePedido&codigoPedido=${objPedido.codigoPedido}">Inspeccionar</a>

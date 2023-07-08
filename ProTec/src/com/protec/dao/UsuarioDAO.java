@@ -29,7 +29,7 @@ public class UsuarioDAO {
 			e.printStackTrace();
 		}
 	}
-	
+	/*
 	public int validarUsuario(String correo, String password) throws SQLException {
 		int usuarioValido = 0;
 		Statement stmt = conexion.createStatement();
@@ -39,7 +39,18 @@ public class UsuarioDAO {
 			usuarioValido = 1;
 		}
 		return usuarioValido;
+	}*/
+	public String validarUsuario(String correo, String password) throws SQLException {
+	    String perfilUsuario = ""; 
+	    Statement stmt = conexion.createStatement();
+	    String sentencia = "SELECT perfil FROM Usuario WHERE correo='" + correo + "' AND password='" + password + "'";
+	    ResultSet resultado = stmt.executeQuery(sentencia);
+	    if (resultado.next()) {
+	        perfilUsuario = resultado.getString("perfil");
+	    }
+	    return perfilUsuario;
 	}
+
 	
 	public List<Usuario> buscarUsuarios(String perfil) throws SQLException{
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -102,5 +113,16 @@ public class UsuarioDAO {
 		stmt.execute(sentencia);
 	}
 	
+	public String obtenerPerfilUsuario(String correo) throws SQLException {
+	    String perfil = "";
+	    Statement stmt = conexion.createStatement();
+	    String sentencia = "SELECT perfil FROM Usuario WHERE correo='" + correo + "'";
+	    ResultSet resultado = stmt.executeQuery(sentencia);
+	    if (resultado.next()) {
+	        perfil = resultado.getString("perfil");
+	    }
+	    return perfil;
+	}
+
 	
 }

@@ -39,7 +39,7 @@
 							<input type="text" class="form-control" name="telefCliente" value="${objPedido.telefCliente}">
 						<br>
 						<h5>Fecha Del Pedido</h5>
-							<input type="text" class="form-control" name="fecPedido" value="${objPedido.fecPedido}">
+							<input type="text" class="form-control" name="fecPedido" value="${objPedido.fecPedido}" readonly>
 						<br>
 						<h5>Fecha De Entrega</h5>
 							<input type="text" class="form-control" name="fecEntrega" value="${objPedido.fecEntrega}">
@@ -49,12 +49,14 @@
 						<h5>Productos del Pedido</h5>
 							<input type="text" class="form-control" name="detalle" style="width: 550px; height: 100px;" value="${objPedido.detalle}">
 						<br>
-					
-						<h5>Estado del Pedido:</h5> <select class="form-select" name="estado">
-							  <option value="Programado">Programado</option>
-							  <option value="En Preparacion">En Preparacion</option>
-							  <option value="Entregado">Entregado</option>
-						</select><br><br>	
+						
+						<h5>Estado del Pedido</h5>
+							<input type="text" class="form-control" name="estado" value="${objPedido.estado}" readonly>
+						<br>
+						<h5>Número del Pedido</h5>
+							<input type="text" class="form-control" name="estado" value="${objPedido.numPedido}" readonly>
+						<br>
+						<br>	
 					</div>		
 					<div class="col-2"></div>
 					<div style="text-align: center">	

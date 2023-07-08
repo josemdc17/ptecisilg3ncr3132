@@ -18,7 +18,7 @@
 				<button style="border-radius: 7px; background-color: #119e44; border-style: solid; border-color:green; color:white">Regresar</button>
 		</form>
 	</div>
-			<h1>Detalle del Pedido</h1>
+			<h1>Detalle del Pedido ${objPedido.numPedido} </h1>
 			<br>
 			<br>
 			<form action="pedido" method="POST">
@@ -30,28 +30,28 @@
 							<input type="text" class="form-control" name="codigoPedido" value="${objPedido.codigoPedido}" readonly>
 						<br>
 						<h5>Nombre del Cliente</h5>
-							<input type="text" class="form-control" name="nombreCliente" value="${objPedido.nombreCliente}">
+							<input type="text" class="form-control" name="nombreCliente" value="${objPedido.nombreCliente}" readonly>
 						<br>
 						<h5>Dirección del Cliente</h5>
-							<input type="text" class="form-control" name="direccionCliente" value="${objPedido.direccionCliente}">
-						<br>
-						<h5>Teléfono del Cliente</h5>
-							<input type="text" class="form-control" name="telefCliente" value="${objPedido.telefCliente}">
+							<input type="text" class="form-control" name="direccionCliente" value="${objPedido.direccionCliente}" readonly>
 						<br>
 						<h5>Fecha Del Pedido</h5>
-							<input type="text" class="form-control" name="fecPedido" value="${objPedido.fecPedido}">
+							<input type="text" class="form-control" name="fecPedido" value="${objPedido.fecPedido}" readonly>
 						<br>
 						<h5>Fecha De Entrega</h5>
-							<input type="text" class="form-control" name="fecEntrega" value="${objPedido.fecEntrega}">
+							<input type="text" class="form-control" name="fecEntrega" value="${objPedido.fecEntrega}" readonly>
 						<br>
 					</div>
 					<div class="col-4">
 						<h5>Productos del Pedido</h5>
-							<input type="text" class="form-control" name="detalle" style="width: 550px; height: 100px;" value="${objPedido.detalle}">
+							<input type="text" class="form-control" name="detalle" style="width: 550px; height: 100px;" value="${objPedido.detalle}" readonly>
 						<br>
 					
 						<h5>Estado del Pedido</h5>
-							<input type="text" class="form-control" name="peso" value="${objPedido.estado}">
+							<input type="text" class="form-control" name="peso" value="${objPedido.estado}" readonly>
+						<br>
+						<h5>Teléfono del Cliente</h5>
+							<input type="text" class="form-control" name="telefCliente" value="${objPedido.telefCliente}" readonly>
 						<br>
 					</div>		
 					<div class="col-2"></div>

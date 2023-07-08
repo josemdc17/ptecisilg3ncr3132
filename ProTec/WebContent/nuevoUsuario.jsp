@@ -34,6 +34,7 @@
 						<h5>Perfil:</h5> 
 						<select class="form-select" name="perfil">
 							<option value="Administrativo">Administrativo</option>
+							<option value="Jefe">Jefe de Almacén</option>
 						</select><br><br>
 					</div>
 					<div class="col-5"></div>	
